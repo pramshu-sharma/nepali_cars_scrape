@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 from pagination import get_list_links
 
-urls = get_list_links('https://www.nepalicars.com/en/vehicle_listings?page=40')
+urls = get_list_links('https://www.nepalicars.com/en/vehicle_listings?page=1')
 spec_urls = []
 for page in urls:
     url = page
@@ -23,8 +23,8 @@ for page in urls:
         spec_urls.append(link_prefix + str(link['href']))
     print(f'Pages Completed: {page}')
 
-for links in spec_urls:
-    print(links)
+df_links = pd.DataFrame(spec_urls, columns=['urls'])
+df_links.to_csv('nepalicars_all_links.csv', index=False)
 
 
 

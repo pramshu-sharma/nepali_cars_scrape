@@ -28,7 +28,9 @@ def get_next_page(soup):
 
 def get_list_links(url):
     url_list = []
+    link = url
     while True:
+        print(f'Pages Scrapped (Links): {link}')
         url_list.append(url)
         page = get_page_source(url)
         page_soup = get_soup(page)
