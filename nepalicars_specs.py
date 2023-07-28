@@ -56,7 +56,7 @@ with open('C:/Users/Pramshu/PycharmProjects/NepaliCars/nepalicars_all_links.csv'
             car_details[key] = value
         car_details_list.append(car_details)
         end_time = time.time()
-        print(f'Details Scrapped: {car_count},URL: {rows[0]},Time Taken (Total): {round(end_time - start_time, 2)} seconds')
+        print(f'Details Scrapped: {car_count}, URL: {rows[0]}, Time Taken (Total): {round((end_time - start_time)/60, 2)} minutes')
         car_count += 1
 
 df = pd.DataFrame(car_details_list, index=None)
